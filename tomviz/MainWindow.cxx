@@ -266,6 +266,8 @@ MainWindow::MainWindow(QWidget* parent, Qt::WindowFlags flags)
     m_ui->menuTomography->addAction("Algebraic Reconstruction Technique (ART)");
   QAction* reconSIRTAction = m_ui->menuTomography->addAction(
     "Simultaneous Iterative Recon. Technique (SIRT)");
+  QAction* reconGENFIREAction =
+    m_ui->menuTomography->addAction("GENeralized Fourier Iterative REconstruction (GENFIRE)"); 
   QAction* reconDFMConstraintAction =
     m_ui->menuTomography->addAction("Constraint-based Direct Fourier Method");
   QAction* reconTVMinimizationAction =
@@ -342,6 +344,9 @@ MainWindow::MainWindow(QWidget* parent, Qt::WindowFlags flags)
   new AddPythonTransformReaction(reconSIRTAction, "Reconstruct (SIRT)",
                                  readInPythonScript("Recon_SIRT"), true, false,
                                  readInJSONDescription("Recon_SIRT"));
+  new AddPythonTransformReaction(reconGENFIREAction, "Reconstruct (GENFIRE)",
+		                 readInPythonScript("Recon_GENFIRE"), true, false,
+				 readInJSONDescription("Recon_GENFIRE"));
   new AddPythonTransformReaction(
     reconDFMConstraintAction, "Reconstruct (Constraint-based Direct Fourier)",
     readInPythonScript("Recon_DFT_constraint"), true, false,

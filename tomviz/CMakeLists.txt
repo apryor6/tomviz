@@ -255,6 +255,7 @@ set(python_files
   Recon_ART.py
   Recon_SIRT.py
   Recon_TV_minimization.py
+  Recon_GENFIRE.py
   Crop_Data.py
   FFT_AbsLog.py
   Shift_Stack_Uniformly.py
@@ -323,6 +324,7 @@ set(json_files
   Recon_TV_minimization.json
   Recon_SIRT.json
   Recon_WBP.json
+  Recon_GENFIRE.json
   Shift3D.json
   ShiftTiltSeriesRandomly.json
   BinaryMinMaxCurvatureFlow.json
