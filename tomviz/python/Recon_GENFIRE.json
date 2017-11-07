@@ -12,7 +12,7 @@
   "parameters" : [
     {
       "name" : "Niter",
-      "label" : "Number Of Iterations",
+      "label" : "Number of Iterations",
       "type" : "int",
       "default" : 50,
       "minimum" : 1
@@ -25,33 +25,75 @@
       "minimum" : 1
     },
     {
+      "name" : "InterpolationCutoffDistance",
+      "label" : "Interpolation Cutoff Distance (pixels)",
+      "type" : "double",
+      "default" : 0.5,
+      "minimum" : 0,
+      "precision": 4
+    },
+    {
       "name" : "GriddingMethod",
-      "label" : "FFT or DFT gridding",
+      "label" : "Gridding Method",
       "type" : "enumeration",
       "default" : 0,
       "options" : [
         {"FFT": 0},
-        {"DFT": 1},
+        {"DFT": 1}
       ]
     },
     {
-      "name" : "ResolutionExSupp",
-      "label" : "Use resolution extension/suppression",
+      "name" : "ResolutionExtensionSuppression",
+      "label" : "Resolution Extension/Suppression",
       "type" : "enumeration",
       "default" : 0,
       "options" : [
-        {"ext/supp": 0},
-        {"none": 1},
-        {"ext only": 2},
+        {"On": 0},
+        {"Off": 1},
+        {"Extension Only": 2}
       ]
     },
     {
-      "name" : "InterpolationCutoffDistance",
-      "label" : "Interpolation dutoff distance",
-      "type" : "enumeration",
-      "type" : "double",
-      "precision": 5,
-      "default" : 0.5,
+      "name" : "SupportFilename",
+      "label" : "Support Filename",
+      "type" : "int",
+      "default" : 1
+    }, 
+    {
+      "name" : "CalculateRfree",
+      "label" : "Calculate R-free",
+      "type" : "bool",
+      "default" : true
+    },
+    {
+      "name" : "ConstraintPositivity",
+      "label" : "Positivity Constraint",
+      "type" : "bool",
+      "default" : true
+    },
+    {
+      "name" : "ConstraintSupport",
+      "label" : "Support Constraint",
+      "type" : "bool",
+      "default" : true
+    },
+    {
+      "name" : "EnforceResolutionCircle",
+      "label" : "Enforce Resolution Circle",
+      "type" : "bool",
+      "default" : true
+    },
+    {
+      "name" : "PermitMultipleGridding",
+      "label" : "Allow Multiple Gridding",
+      "type" : "bool",
+      "default" : false
+    },
+    {
+      "name" : "Verbose",
+      "label" : "Verbose Mode",
+      "type" : "bool",
+      "default" : true
     }
   ]
 }
