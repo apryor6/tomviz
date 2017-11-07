@@ -1,0 +1,57 @@
+{
+  "name" : "ReconstructGENFIRE",
+  "label" : "GENFIRE Reconstruction",
+  "description" : "Reconstruct a tilt series using GENeralized Fourier Iterative REconstruction (GENFIRE).",
+  "children": [
+    {
+      "name": "reconstruction",
+      "label": "Reconstruction",
+      "type": "reconstruction"
+    }
+  ],
+  "parameters" : [
+    {
+      "name" : "Niter",
+      "label" : "Number Of Iterations",
+      "type" : "int",
+      "default" : 50,
+      "minimum" : 1
+    },
+    {
+      "name" : "OversamplingRatio",
+      "label" : "Oversampling Ratio",
+      "type" : "int",
+      "default" : 3,
+      "minimum" : 1
+    },
+    {
+      "name" : "GriddingMethod",
+      "label" : "FFT or DFT gridding",
+      "type" : "enumeration",
+      "default" : 0,
+      "options" : [
+        {"FFT": 0},
+        {"DFT": 1},
+      ]
+    },
+    {
+      "name" : "ResolutionExSupp",
+      "label" : "Use resolution extension/suppression",
+      "type" : "enumeration",
+      "default" : 0,
+      "options" : [
+        {"ext/supp": 0},
+        {"none": 1},
+        {"ext only": 2},
+      ]
+    },
+    {
+      "name" : "InterpolationCutoffDistance",
+      "label" : "Interpolation dutoff distance",
+      "type" : "enumeration",
+      "type" : "double",
+      "precision": 5,
+      "default" : 0.5,
+    }
+  ]
+}

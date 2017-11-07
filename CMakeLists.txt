@@ -13,6 +13,8 @@ include(BuildLocation)
 include(CompilerFlags)
 include(tomvizDetermineVersion)
 include(Git)
+find_package( PythonInterp 3.6 REQUIRED )
+find_package( PythonLibs 3.6 REQUIRED )
 
 determine_version("${tomviz_SOURCE_DIR}" "${GIT_EXECUTABLE}" "tomviz")
 # Hard coded for source tarballs, releases, etc.
