@@ -36,8 +36,6 @@ class ReconGENFIREOperator(tomviz.operators.CancelableOperator):
         from vtk import vtkImageData
         recon_dataset = vtkImageData()
         recon_dataset.CopyStructure(dataset)
-        utils.set_array(recon_dataset, results['reconstruction'])
+        utils.set_array(recon_dataset, np.asfortranarray(results['reconstruction']))
         utils.mark_as_volume(recon_dataset)
-        
         return dict(reconstruction=recon_dataset)
-        # return dict(reconstruction=results['reconstruction'])
