@@ -17,6 +17,9 @@ class ReconGENFIREOperator(tomviz.operators.CancelableOperator):
         if tiltSeries is None:
             raise RuntimeError("No scalars found!")
 
+        # Convert from Tomviz rotation axis convention to GENFIRE
+        tiltSeries = np.roll(np.rot90(tiltSeries, k=1, axes=(0, 1)), shift=1, axis=0)
+
         # Convert enumerated type to that used by GENFIRE
         gridMap = {0:"FFT", 1:"DFT"}
         kwargs['griddingMethod'] = gridMap[kwargs['griddingMethod']]
@@ -32,6 +35,9 @@ class ReconGENFIREOperator(tomviz.operators.CancelableOperator):
         # Run the reconstruction
         GF = gf.reconstruct.GenfireReconstructor(**pars)
         results = GF.reconstruct()
+
+        # Rotate volume back to match Tomviz orientation convention
+        results['reconstruction'] = np.rot90(np.roll(results['reconstruction'], shift=-1, axis=0), k=3, axes=(0, 1))
 
         from vtk import vtkImageData
         recon_dataset = vtkImageData()
